@@ -23,7 +23,7 @@ public class Disciplina extends JFrame{
         JPanel panelTitulo = new JPanel();
         panelTitulo.setLayout(new FlowLayout());
 
-        JLabel titulo = new JLabel("Cadastro De Disciplinas");
+        JLabel titulo = new JLabel("Disciplinas");
         titulo.setFont(new Font("Verdana", Font.PLAIN, 16));
 
         panelTitulo.add(titulo);
