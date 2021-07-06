@@ -8,7 +8,5 @@ public class ProgramaPrincipal {
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         app.setSize(530,260);
         app.setVisible(true);
-
-
     }
 }
