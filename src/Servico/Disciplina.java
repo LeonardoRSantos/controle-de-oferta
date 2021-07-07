@@ -4,6 +4,25 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Disciplina extends JFrame{
+    String [] colunas = {"ID", "Nome"};
+    Object [][] dados = {
+            {1, "Portugues"},
+            {2, "Matematica"},
+            {3, "Programação"},
+            {1, "Portugues"},
+            {2, "Matematica"},
+            {3, "Programação"},
+            {1, "Portugues"},
+            {2, "Matematica"},
+            {3, "Programação"},
+            {1, "Portugues"},
+            {2, "Matematica"},
+            {3, "Programação"},
+            {1, "Portugues"},
+            {2, "Matematica"},
+            {3, "Programação"},
+
+    };
 
     public Disciplina(){
         // TITULO DA JANELA
@@ -14,27 +33,29 @@ public class Disciplina extends JFrame{
         this.setSize(530,260);
         this.setLayout(new FlowLayout());
         this.setVisible(false);
-        criarFormulario(this);
+        criaFormulario(this);
+
     }
 
-    private void criarFormulario(JFrame window){
+    private void criaFormulario(JFrame window){
         setLayout(new BorderLayout());
-
-        JPanel panelTitulo = new JPanel();
-        panelTitulo.setLayout(new FlowLayout());
-
-        JLabel titulo = new JLabel("Disciplinas");
-        titulo.setFont(new Font("Verdana", Font.PLAIN, 16));
-
-        panelTitulo.add(titulo);
 
         JPanel panelCadastro = new JPanel();
         panelCadastro.setLayout(new FlowLayout());
         JLabel nomeLabel = new JLabel("Nome ");
-        JTextField nomeField = new JTextField(40);
+        JTextField nomeField = new JTextField(30);
 
         panelCadastro.add(nomeLabel);
         panelCadastro.add(nomeField);
+
+        // TABELA
+        JPanel panelTabela = new JPanel(new GridLayout());
+        panelTabela.setLayout(new FlowLayout());
+        JTable tabela = new JTable(dados, colunas);
+        tabela.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        JScrollPane barraRolagem = new JScrollPane(tabela, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        barraRolagem.setEnabled(true);
+        panelTabela.add(barraRolagem);
 
         JPanel panelBotoes = new JPanel();
         panelBotoes.setLayout(new FlowLayout());
@@ -45,8 +66,8 @@ public class Disciplina extends JFrame{
         panelBotoes.add(botaoSalvar);
         panelBotoes.add(botaoFechar);
 
-        window.getContentPane().add(panelTitulo, BorderLayout.NORTH);
-        window.getContentPane().add(panelCadastro, BorderLayout.CENTER);
+        window.getContentPane().add(panelCadastro, BorderLayout.NORTH);
+        window.getContentPane().add(panelTabela);
         window.getContentPane().add(panelBotoes, BorderLayout.SOUTH);
 
     }
